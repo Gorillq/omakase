@@ -42,7 +42,7 @@ fi
 if command_exists ruby; then
   echo -e "${GREEN}Ruby is installed${NC}"
   
-  yay_file="../lib/yay.rb"
+yay_file="$(dirname "$0")/lib/yay.rb"
   if [ -f "$yay_file" ]; then
     echo -e "${GREEN}Running yay.rb first${NC}"
     ruby "$yay_file"
@@ -55,7 +55,7 @@ if command_exists ruby; then
     exit 1
   fi
 
-  for file in ../lib/*.rb; do
+  for file in $(dirname "$0")/lib/*.rb; do
     if [ -f "$file" ] && [ "$file" != "$yay_file" ]; then
       echo -e "${GREEN}Running file $file${NC}"
       ruby "$file"
@@ -65,8 +65,9 @@ if command_exists ruby; then
     fi
   done
   echo -e "${GREEN}All files executed. Have fun!${NC}"
-  echo -e "${RED}Reboot in 1 minute!${NC}"
-  reboot 1
+  echo -e "${RED}Reboot in 1 minute! Ctrl+c to cancel${NC}"
+  sleep 60s
+  sudo reboot
 else
   echo -e "${RED}Ruby is not available. Something went wrong with rbenv setup.${NC}"
   echo "Try running 'source ~/.bashrc' or restarting your terminal, then run this script again."
