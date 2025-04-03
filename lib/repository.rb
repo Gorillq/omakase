@@ -2,4 +2,5 @@
 
 require_relative 'utils'
 
-Utils.repository("mesa", "alsa-utils", "htop", "curl", "tmux", "tree", "zip", "unzip", "whois", "wget", "cmake", "ninja", "sqlite", "go", "valgrind", "termshark", "libreoffice-still", "cups", "cups-pdf", "ffmpeg", "pulseaudio", "gimp", "rsync")
+Utils.repository("mesa", "alsa-utils", "htop", "curl", "tmux", "tree", "zip", "unzip", "whois", "wget", "cmake", "ninja", "sqlite", "go", "valgrind", "termshark", "libreoffice-still", "cups", "cups-pdf", "ffmpeg", "pulseaudio", "gimp", "rsync", "chromium")
+Utils.terminate

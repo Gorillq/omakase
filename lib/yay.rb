@@ -29,3 +29,4 @@ puts "#{Utils::COLOURS[:green]}Cleaning up temporary files...#{Utils::COLOURS[:r
 run_command("rm -rf #{yay_dir}")
 
 puts "#{Utils::COLOURS[:teal]}Installation complete! You can now use yay to install AUR packages.#{Utils::COLOURS[:reset]}"
+Utils.terminate
