@@ -18,7 +18,7 @@ if ! command_exists rbenv; then
   sudo pacman -Sy
 
   echo -e "${GREEN}Installing dependencies for ruby${NC}"
-  sudo pacman -S --noconfirm --needed git base-devel openssl zlib libffi
+  sudo pacman -S --noconfirm --needed git base-devel openssl zlib libffi libyaml
 
   echo -e "${GREEN}Installing rbenv${NC}"
   sudo pacman -S --noconfirm rbenv ruby-build
@@ -35,6 +35,7 @@ if ! command_exists rbenv; then
     exit 1
   fi
   rbenv global 3.4.2
+  rbenv rehash
 else
   echo -e "${GREEN}rbenv installed, skipping${NC}"
 fi
@@ -48,10 +49,12 @@ yay_file="$(dirname "$0")/lib/yay.rb"
     ruby "$yay_file"
     if [ $? -ne 0 ]; then
       echo -e "${RED}yay.rb failed. Installation cannot continue..${NC}"
+      sleep 10s
       exit 1
     fi
   else
     echo -e "${RED}yay.rb not found in ../lib/. Exiting.${NC}"
+    sleep 10s
     exit 1
   fi
 
