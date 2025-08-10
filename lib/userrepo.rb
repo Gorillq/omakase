@@ -8,11 +8,11 @@ Utils.run_command('nvim', '+qall')
 Utils.run_command('git', 'clone', 'https://github.com/LazyVim/starter ~/.config/nvim')
 Utils.run_command('rm', '-rf', '~/.config/nvim/.git')
 Utils.run_command('nvim', '+LazyHealth', '+qall')
-#Lenovo firmware
+#Server firmware
 choice = ""
 
 until ["Y", "N"].include?(choice)
-  puts "Lenovo ideapad5 firmware, install? ('Y' or 'N')"
+  puts "Server firmware, install? ('Y' or 'N')"
   choice = gets.chomp.upcase
 end
 
