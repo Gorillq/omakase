@@ -2,12 +2,14 @@
 
 require_relative "utils"
 
-Utils.run_command("yay", "-S", "librewolf-bin", "nvim-lazy")
+Utils.run_command("yay", "-S", "--needed", "librewolf-bin", "nvim-lazy")
 #lazyvim
 Utils.run_command('nvim', '+qall')
-Utils.run_command('git', 'clone', 'https://github.com/LazyVim/starter ~/.config/nvim')
+Utils.run_command('mkdir', '-p', "/home/goro/.config/nvim")
+Utils.run_command('git', 'clone', 'https://github.com/LazyVim/starter' "/home/goro/.config/nvim")
 Utils.run_command('rm', '-rf', '~/.config/nvim/.git')
 Utils.run_command('nvim', '+LazyHealth', '+qall')
+Utils.run_command('clear')
 #Server firmware
 choice = ""
 

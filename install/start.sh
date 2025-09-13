@@ -36,6 +36,7 @@ if ! command_exists rbenv; then
   fi
   rbenv global 3.4.2
   rbenv rehash
+  source ~/.bashrc
 else
   echo -e "${GREEN}rbenv installed, skipping${NC}"
 fi
