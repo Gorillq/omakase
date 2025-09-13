@@ -19,7 +19,7 @@ module Utils
 #    system(*commands) || puts ("#{COLOURS[:yellow]}Command failed:#{COLOURS[:red]} #{commands.join(' ')}.#{COLOURS[:yellow]} Exit code:#{COLOURS[:red]} #{$?.exitstatus}#{COLOURS[:reset]}")
 #control flow?
   system(*commands)
-  return true if $?.success?
+  return if $?.success?
 
   puts "#{COLOURS[:yellow]}Command failed:#{COLOURS[:red]} #{commands.join(' ')}.#{COLOURS[:yellow]} Exit code:#{COLOURS[:red]} #{$?.exitstatus}#{COLOURS[:reset]}"
   false
@@ -29,6 +29,12 @@ module Utils
     run_system_command(*commands)
   end
   
+  def self.catch_command(*commands)
+    require 'shellwords'
+    command = commands.shelljoin
+    result = `#{command}`
+  end
+
   def self.repository(*packages)
     run_system_command("sudo", "pacman", "-S", "--noconfirm", "--needed", *packages)
   end

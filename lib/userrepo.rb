@@ -10,7 +10,9 @@ end
 
 nvim_config = File.join(home_dir, ".config", "nvim")
 
-Utils.run_command("yay", "-S", "--needed", "librewolf-bin", "nvim-lazy")
+Utils.run_command("yay", "-S", "--needed",
+ "librewolf-bin",
+ "nvim-lazy")
 
 if Dir.exist?(nvim_config)
   puts "#{Utils::COLOURS[:lblue]}Existing configuration found. #{Utils::COLOURS[:green]} Backing up..#{Utils::COLOURS[:reset]}"
@@ -35,7 +37,11 @@ until ["Y", "N"].include?(choice)
 end
 
 if choice == "Y"
-  Utils.run_command('yay', '-S', 'ast-firmware', 'aic94xx-firmware', 'wd719x-firmware', 'linux-firmware-qlogic')
+  Utils.run_command('yay', '-S', '--needed',
+	'ast-firmware',
+ 	'aic94xx-firmware',
+ 	'wd719x-firmware',
+ 	'linux-firmware-qlogic')
 end
 
 Utils.terminate
