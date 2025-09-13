@@ -16,7 +16,13 @@ module Utils
   end
 
   def self.run_system_command(*commands)
-    system(*commands)# || puts "#{COLOURS[:yellow]}Command failed:#{COLOURS[:red]} #{commands.join(' ')}.#{COLOURS[:yellow]} Exit code:#{COLOURS[:red]} #{$?.exitstatus}#{COLOURS[:reset]}"
+#    system(*commands) || puts ("#{COLOURS[:yellow]}Command failed:#{COLOURS[:red]} #{commands.join(' ')}.#{COLOURS[:yellow]} Exit code:#{COLOURS[:red]} #{$?.exitstatus}#{COLOURS[:reset]}")
+#control flow?
+  system(*commands)
+  return true if $?.success?
+
+  puts "#{COLOURS[:yellow]}Command failed:#{COLOURS[:red]} #{commands.join(' ')}.#{COLOURS[:yellow]} Exit code:#{COLOURS[:red]} #{$?.exitstatus}#{COLOURS[:reset]}"
+  false
   end
 
   def self.run_command(*commands)
