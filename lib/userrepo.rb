@@ -12,8 +12,14 @@ nvim_config = File.join(home_dir, ".config", "nvim")
 
 Utils.run_command("yay", "-S", "--needed",
  "librewolf-bin",
+ "iwgtk",
+ "mecab-git",
+ "mecab-ipadic",
  "nvim-lazy")
 
+if Utils.package_installed?("mecab-git") && Utils.package_installed?("mecab-ipadic")
+  Utils.run_command("yay", "-S", "--needed", "python-mecab")
+end
 if Dir.exist?(nvim_config)
   puts "#{Utils::COLOURS[:lblue]}Existing configuration found. #{Utils::COLOURS[:green]} Backing up..#{Utils::COLOURS[:reset]}"
   backup = "#{nvim_config}.backup_#{Time.now.strftime('%Y%m%d-%H%M%S')}"
