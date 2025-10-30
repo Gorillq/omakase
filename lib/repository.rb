@@ -35,5 +35,7 @@ Utils.repository(
   "ghostty",
   "filezilla",
   "python-pip",
+  "zig",
+  "zls",
   "fastfetch")
 Utils.terminate
