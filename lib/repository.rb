@@ -37,5 +37,7 @@ Utils.repository(
   "python-pip",
   "zig",
   "zls",
+  "ghostscript"
+  "pyenv"
   "fastfetch")
 Utils.terminate
