@@ -29,12 +29,12 @@ if ! command_exists rbenv; then
   
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
-  rbenv install 3.4.2
+  rbenv install 3.4.7
   if [ $? -ne 0 ]; then
     echo -e "${RED}Failed to install ruby. Exiting.${NC}"
     exit 1
   fi
-  rbenv global 3.4.2
+  rbenv global 3.4.7
   rbenv rehash
   source ~/.bashrc
 else
