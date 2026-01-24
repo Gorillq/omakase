@@ -31,7 +31,7 @@ Utils.run_command('nvim', "+qall")
 Utils.run_command("git", "clone", "https://github.com/LazyVim/starter", nvim_config)
 Utils.run_command('rm', '-rf', File.join(nvim_config, ".git"))
 Utils.run_command("nvim", "+Lazy intall", "+qa")
-Utils.run_command('nvim', '+LazyHealth', "+qall")
+#Utils.run_command('nvim', '+LazyHealth', "+qall")
 Utils.run_command('sleep', '12')
 Utils.run_command('clear')
 #Server firmware

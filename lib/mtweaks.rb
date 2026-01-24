@@ -20,4 +20,4 @@ if ENV["XDG_CURRENT_DESKTOP"]&.include?("MATE")
 else
   puts "No mate, check bindings"
   Utils.terminate
-  
+end  
